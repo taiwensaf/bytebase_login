@@ -67,6 +67,7 @@ function LoginContent() {
           {/* 登录按钮区域 */}
           <div className="space-y-3 lg:space-y-4">
           <button
+              onClick={() => {}}
               className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
             >
               <img
@@ -93,6 +94,7 @@ function LoginContent() {
               <span>{isLoading ? '登录中...' : '继续使用 GitHub'}</span>
             </button>
             <button
+              onClick={() => {}}
               className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
             >
               <img
