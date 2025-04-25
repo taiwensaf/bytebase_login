@@ -19,8 +19,8 @@ export async function POST(request: Request) {
         'Accept': 'application/json',
       },
       body: JSON.stringify({
-        client_id: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
-        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        client_id: process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID,
+        client_secret: process.env.OAUTH_CLIENT_SECRET,
         code,
       }),
     });

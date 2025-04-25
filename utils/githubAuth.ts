@@ -1,8 +1,8 @@
-if (!process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID) {
+if (!process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID) {
   console.error('GitHub Client ID is not set. Please check your environment variables.');
 }
 
-export const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID || '';
+export const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID || '';
 
 if (!GITHUB_CLIENT_ID) {
   console.error('GitHub Client ID is empty. OAuth will not work.');
