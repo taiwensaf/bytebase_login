@@ -3,7 +3,6 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, useCallback, Suspense } from 'react';
 import { GITHUB_AUTH_URL, getGitHubUser } from '@/utils/githubAuth';
-import Image from 'next/image';
 import Link from 'next/link';
 
 function LoginContent() {
@@ -40,12 +39,10 @@ function LoginContent() {
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* 左侧背景图 - 在移动端隐藏 */}
       <div className="hidden lg:flex lg:w-1/2 relative">
-        <Image
-          src="/image3.png"
+        <img
+          src="/bytebase_login/image3.png"
           alt="Background"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
 
@@ -54,12 +51,11 @@ function LoginContent() {
         <div className="w-full max-w-sm lg:max-w-md">
           {/* Logo 和标题区域 */}
           <div className="text-center mb-6 lg:mb-8">
-            <Image
-              src="/image1.png"
+            <img
+              src="/bytebase_login/image1.png"
               alt="Bytebase Logo"
               width={160}
               height={40}
-              priority
               className="mx-auto mb-4 lg:mb-6 w-32 lg:w-40"
             />
             <h1 className="text-xl lg:text-2xl font-semibold mb-2">欢迎</h1>
@@ -75,8 +71,8 @@ function LoginContent() {
               disabled={isLoading}
               className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
             >
-              <Image
-                src="/github.png"
+              <img
+                src="/bytebase_login/github.png"
                 alt="GitHub"
                 width={18}
                 height={18}

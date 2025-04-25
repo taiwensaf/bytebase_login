@@ -6,6 +6,7 @@ const nextConfig = {
   },
   basePath: '/bytebase_login',
   assetPrefix: '/bytebase_login/',
+  trailingSlash: true,
 }
 
 export default nextConfig

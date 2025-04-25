@@ -6,12 +6,12 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center px-4 py-16 sm:px-6 lg:px-8">
       <div className="w-full max-w-7xl mx-auto">
         <div className="flex items-center mb-12">
-          <Image
-            src="/image1.png"
+          <img
+            src="/bytebase_login/image1.png"
             alt="Bytebase Logo"
             width={200}
             height={100}
-            priority
+            className="h-auto"
           />
         </div>
         
@@ -40,12 +40,11 @@ export default function Home() {
           </div>
           
           <div className="flex justify-center lg:justify-end">
-            <Image
-              src="/image2.png"
+            <img
+              src="/bytebase_login/image2.png"
               alt="Bytebase Illustration"
               width={500}
               height={500}
-              priority
               className="max-w-full h-auto"
             />
           </div>
