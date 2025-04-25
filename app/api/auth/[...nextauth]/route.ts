@@ -1,5 +1,18 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
+import { Session } from 'next-auth';
+
+// 扩展 Session 类型
+declare module 'next-auth' {
+  interface Session {
+    user: {
+      id?: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    }
+  }
+}
 
 const handler = NextAuth({
   providers: [
@@ -9,8 +22,8 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session, token }) {
-      if (session?.user) {
+    async session({ session, token }): Promise<Session> {
+      if (session?.user && token.sub) {
         session.user.id = token.sub;
       }
       return session;
