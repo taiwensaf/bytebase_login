@@ -1,9 +1,14 @@
 import Link from "next/link";
 
+/**
+ * 首页组件
+ * 展示 Bytebase Hub 的欢迎页面
+ */
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center px-4 py-16 sm:px-6 lg:px-8">
       <div className="w-full max-w-7xl mx-auto">
+        {/* Logo 区域 */}
         <div className="flex items-center mb-12">
           <img
             src="/bytebase_login/image1.png"
@@ -14,7 +19,9 @@ export default function Home() {
           />
         </div>
         
+        {/* 主要内容区域 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* 左侧文本区域 */}
           <div className="space-y-6">
             <h1 className="text-5xl sm:text-6xl font-semibold text-[#1a1a1a] leading-tight">
               Welcome to Bytebase Hub
@@ -22,6 +29,7 @@ export default function Home() {
             <p className="text-lg text-gray-600 max-w-xl">
               Bytebase Hub is for accessing Bytebase Cloud service and managing your Bytebase cloud and self-host subscription.
             </p>
+            {/* 操作按钮区域 */}
             <div className="flex flex-wrap gap-4">
               <Link 
                 href="/login"
@@ -38,6 +46,7 @@ export default function Home() {
             </div>
           </div>
           
+          {/* 右侧图片区域 */}
           <div className="flex justify-center lg:justify-end">
             <img
               src="/bytebase_login/image2.png"

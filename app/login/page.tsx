@@ -5,12 +5,20 @@ import { useEffect, useState, useCallback, Suspense } from 'react';
 import { GITHUB_AUTH_URL, getGitHubUser } from '@/utils/githubAuth';
 import Link from 'next/link';
 
+/**
+ * 登录内容组件
+ * 处理 GitHub OAuth 登录流程
+ */
 function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const code = searchParams.get('code');
   const [isLoading, setIsLoading] = useState(false);
 
+  /**
+   * 处理 GitHub OAuth 回调
+   * @param code - GitHub 返回的授权码
+   */
   const handleGitHubCallback = useCallback(async (code: string) => {
     try {
       setIsLoading(true);
@@ -29,6 +37,7 @@ function LoginContent() {
     }
   }, [router]);
 
+  // 监听 URL 中的 code 参数
   useEffect(() => {
     if (code) {
       handleGitHubCallback(code);
@@ -66,6 +75,7 @@ function LoginContent() {
 
           {/* 登录按钮区域 */}
           <div className="space-y-3 lg:space-y-4">
+            {/* Google 登录按钮 */}
           <button
               onClick={() => {}}
               className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
@@ -79,6 +89,7 @@ function LoginContent() {
               />
               <span>继续使用 Google</span>
             </button>
+            {/* GitHub 登录按钮 */}
             <button
               onClick={() => window.location.href = GITHUB_AUTH_URL}
               disabled={isLoading}
@@ -93,6 +104,7 @@ function LoginContent() {
               />
               <span>{isLoading ? '登录中...' : '继续使用 GitHub'}</span>
             </button>
+            {/* Microsoft 登录按钮 */}
             <button
               onClick={() => {}}
               className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
@@ -149,6 +161,10 @@ function LoginContent() {
   );
 }
 
+/**
+ * 登录页面组件
+ * 使用 Suspense 包装登录内容，以支持客户端渲染
+ */
 export default function LoginPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>

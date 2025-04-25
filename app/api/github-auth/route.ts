@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 
+//GitHub 邮箱信息接口
 interface GitHubEmail {
   email: string;
   primary: boolean;
@@ -7,6 +8,11 @@ interface GitHubEmail {
   visibility: string | null;
 }
 
+/**
+ * GitHub OAuth 回调处理
+ * @param request - 包含授权码的请求
+ * @returns NextResponse - 包含用户信息的响应
+ */
 export async function POST(request: Request) {
   try {
     const { code } = await request.json();
