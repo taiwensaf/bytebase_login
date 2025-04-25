@@ -1,5 +1,12 @@
 import { NextResponse } from 'next/server';
 
+interface GitHubEmail {
+  email: string;
+  primary: boolean;
+  verified: boolean;
+  visibility: string | null;
+}
+
 export async function POST(request: Request) {
   try {
     const { code } = await request.json();
@@ -36,8 +43,8 @@ export async function POST(request: Request) {
       },
     });
 
-    const emails = await emailResponse.json();
-    const primaryEmail = emails.find((email: any) => email.primary)?.email;
+    const emails: GitHubEmail[] = await emailResponse.json();
+    const primaryEmail = emails.find(email => email.primary)?.email;
 
     return NextResponse.json({
       ...user,

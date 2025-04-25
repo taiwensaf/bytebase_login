@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { GITHUB_AUTH_URL, getGitHubUser } from '@/utils/githubAuth';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,13 +12,7 @@ export default function LoginPage() {
   const code = searchParams.get('code');
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (code) {
-      handleGitHubCallback(code);
-    }
-  }, [code]);
-
-  const handleGitHubCallback = async (code: string) => {
+  const handleGitHubCallback = useCallback(async (code: string) => {
     try {
       setIsLoading(true);
       const user = await getGitHubUser(code);
@@ -34,7 +28,13 @@ export default function LoginPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [router]);
+
+  useEffect(() => {
+    if (code) {
+      handleGitHubCallback(code);
+    }
+  }, [code, handleGitHubCallback]);
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
