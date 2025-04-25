@@ -66,6 +66,18 @@ function LoginContent() {
 
           {/* 登录按钮区域 */}
           <div className="space-y-3 lg:space-y-4">
+          <button
+              className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
+            >
+              <img
+                src="/bytebase_login/google.png"
+                alt="Google"
+                width={18}
+                height={18}
+                className="lg:w-5 lg:h-5"
+              />
+              <span>继续使用 Google</span>
+            </button>
             <button
               onClick={() => window.location.href = GITHUB_AUTH_URL}
               disabled={isLoading}
@@ -79,6 +91,18 @@ function LoginContent() {
                 className="lg:w-5 lg:h-5"
               />
               <span>{isLoading ? '登录中...' : '继续使用 GitHub'}</span>
+            </button>
+            <button
+              className="w-full flex items-center justify-center gap-2 lg:gap-3 px-3 lg:px-4 py-2.5 lg:py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors text-sm lg:text-base"
+            >
+              <img
+                src="/bytebase_login/microsoft.png"
+                alt="Microsoft"
+                width={18}
+                height={18}
+                className="lg:w-5 lg:h-5"
+              />
+              <span>继续使用 Microsoft Account</span>
             </button>
 
             {/* 分隔线 */}
