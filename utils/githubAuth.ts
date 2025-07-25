@@ -4,7 +4,7 @@ if (!process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID) {
 }
 
 //GitHub OAuth 客户端 ID
-export const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID || '';
+export const GITHUB_CLIENT_ID = process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID;
 
 //检查 GitHub Client ID 是否为空
 if (!GITHUB_CLIENT_ID) {
